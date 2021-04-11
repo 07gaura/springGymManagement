@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::div})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Testing</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<form action="updateusers" method="POST" th:Object="${userval}">
+					<div class="mb-3">
+					 	<input type="hidden" th:value="${userval.id}"  class="form-control" name="id" id="exampleInputEmail1" aria-describedby="emailHelp">
+					    <label for="exampleInputEmail1" class="form-label">UserName</label>
+					    <input type="text" th:value="${userval.name}" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp">
+					  </div>
+					  <div class="mb-3">
+					    <label for="exampleInputEmail1" class="form-label">Email address</label>
+					    <input type="email" th:value="${userval.email}" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+					    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+					  </div>
+					  <div class="mb-3">
+					    <label for="exampleInputPassword1" class="form-label">Mobile Number</label>
+					    <input type="tel" class="form-control" th:value="${userval.phoneno}" name="phoneno" id="exampleInputPassword1">
+					  </div>
+					  <div class="mb-3">
+					    <label for="exampleInputPassword1" class="form-label">Renew Date</label>
+					    <input type="date" th:value="${userval.cdate}" name="cdate" class="form-control" id="exampleInputPassword1">
+					  </div>
+					  <button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+			</div>			
+		</div>
+	</div>
+</body>
+</html>

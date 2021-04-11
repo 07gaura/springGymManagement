@@ -1,0 +1,17 @@
+.ind-col{
+	padding:20px;
+	border-radius: 5px;
+}
+
+.ind-col a{
+	text-decoration:none;
+	color: black;
+}
+
+.ind-col h1{
+	font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.login-block{
+	border-radius: 10px;
+}

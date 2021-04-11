@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::div})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table">
+					  <thead>
+					    <tr>
+					      <th scope="col">#</th>
+					      <th scope="col">Name</th>
+					      <th scope="col">Email</th>
+					      <th scope="col">Mobile no</th>
+					      <th scope="col">Days</th>
+					      <th scope="col">Update</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr th:Object="${userloop}">
+					      <th scope="row" th:text="${userloop.id}">1</th>
+					      <td th:text="${userloop.name}"></td>
+					      <td th:text="${userloop.email}"></td>
+					      <td th:text="${userloop.phoneno}"></td>
+					      <td th:text="${userloop.days}"></td>
+					      <td ><a th:href="@{'/update/'+${userloop.id}}">update</a></td>
+					    </tr>
+					    
+					  </tbody>
+					</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+</body>
+</html>

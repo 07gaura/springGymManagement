@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::div})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Testing</h1>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3 m-2 bg-light ind-col">
+				<h1>Register New Boy/Girl</h1>
+				<form th:action="@{/user/saveusers}" method="POST" th:Object="${userval}">
+					<div class="mb-3">
+					    <label for="exampleInputEmail1" class="form-label">UserName</label>
+					    <input type="text" th:value="${userval.name}" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp">
+					  </div>
+					  <div class="mb-3">
+					    <label for="exampleInputEmail1" class="form-label">Email address</label>
+					    <input type="email" th:value="${userval.email}" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+					    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+					  </div>
+					  <div class="mb-3">
+					    <label for="exampleInputPassword1" class="form-label">Mobile Number</label>
+					    <input type="tel" class="form-control" th:value="${userval.phoneno}" name="phoneno" id="exampleInputPassword1">
+					  </div>
+					  <div class="mb-3">
+					    <label for="exampleInputPassword1" class="form-label">Registration Date</label>
+					    <input type="date" name="cdate" class="form-control" id="exampleInputPassword1">
+					  </div>
+					  <button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+			</div>			
+			<div class="col-md-8 m-2 bg-light ind-col">
+				<table class="table">
+					  <thead>
+					    <tr>
+					      <th scope="col">#</th>
+					      <th scope="col">Name</th>
+					      <th scope="col">Email</th>
+					      <th scope="col">Mobile no</th>
+					      <th scope="col">Days</th>
+					      <th scope="col">Update</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr th:each="c:${userarr}">
+					      <th scope="row" th:text="${c.id}">1</th>
+					      <td th:text="${c.name}"></td>
+					      <td th:text="${c.email}"></td>
+					      <td th:text="${c.phoneno}"></td>
+					      <td th:text="${c.days}"></td>
+					      <td ><a th:href="@{'update/'+${c.id}}">update</a></td>
+					    </tr>					    
+					  </tbody>
+					</table>
+					<div class="col-md-12 text-center">
+						<a th:href="@{currentuser}" class="btn btn-warning">Track User Days</a>
+						<a th:href="@{renewusers}" class="btn btn-primary">Regestration over Users</a>
+						<a th:href="@{downloadcsv}" class="btn btn-success">Download Data</a>
+					</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
